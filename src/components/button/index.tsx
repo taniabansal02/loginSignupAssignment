@@ -16,7 +16,7 @@ interface Props {
 const Button = ({title, setFun, email, password, fname, lname, zip} : Props) => {
     return(
         
-            <TouchableOpacity style={styles.btn} onPress={setFun} activeOpacity = {email && password && fname && lname && zip ? 1 :0 }  >
+            <TouchableOpacity style={[styles.btn,{opacity : (email && password && fname &&lname && zip) ? 1 : 0.6}]} onPress={setFun}   >
             <Text style={styles.btnText}>{title}</Text>
 
         </TouchableOpacity>
