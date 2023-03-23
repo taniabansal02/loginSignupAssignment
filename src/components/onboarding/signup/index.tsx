@@ -17,6 +17,9 @@ const Signup = () => {
 
 
     const pass_ref = useRef();
+    const fname_ref = useRef();
+    const lname_ref = useRef();
+    const zip_ref = useRef();
 
     const [email, setEmail] = useState(false);
      const [password, setPassword] = useState(false);
@@ -287,11 +290,11 @@ const zipHandler = (val) => {
             <ImageBackground source={require('../../../assets/images/bg.png')} resizeMode="cover" style={styles.bgImg}>
             <View style={styles.mainView}>
                 <Text style={styles.heading}> Signup </Text>
-                <Input title="Email" label="Email Address"   fun = {(val) => emailHandler(val)} onSubmitEditing={() =>  pass_ref.current.focus()} blurOnSubmit={false}/>
-                <Input title="Password" label="Password" fun = {(val) => loginHandler(val)}  inputreff={pass_ref}/>
-                <Input title="First Name" label="First Name" fun = {(val) =>  fnameHandler(val)}/>
-                <Input title="Last Name" label="Last Name" fun = {(val) => lnameHandler(val)}/>
-                <Input title="Zip code" label="Zip code" fun={(val) => zipHandler(val)}/>
+                <Input title="Email" label="Email Address"   fun = {(val) => emailHandler(val)} onSubmitEditing={() =>  pass_ref.current.focus()} blurOnSubmit={false} returnKeyType={'next'}/>
+                <Input title="Password" label="Password" fun = {(val) => loginHandler(val)}  inputreff={pass_ref} onSubmitEditing={() => fname_ref.current.focus()} blurOnSubmit={false} returnKeyType={'next'}/>
+                <Input title="First Name" label="First Name" fun = {(val) =>  fnameHandler(val)} inputreff={fname_ref} onSubmitEditing={() => lname_ref.current.focus()} blurOnSubmit={false} returnKeyType={'next'}/>
+                <Input title="Last Name" label="Last Name" fun = {(val) => lnameHandler(val)} inputreff={lname_ref} onSubmitEditing={() => zip_ref.current.focus()} blurOnSubmit={false} returnKeyType={'next'}/>
+                <Input title="Zip code" label="Zip code" fun={(val) => zipHandler(val)} inputreff={zip_ref} returnKeyType={'done'}/>
                 
 
                 <Button title="Register" email={email} 
